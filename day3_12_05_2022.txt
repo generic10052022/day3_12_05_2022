@@ -16,7 +16,26 @@ class Person1{
                    System.out.println("Not eligible");
               }
        }
-     }            
+     }   
+
+
+class Person1b{
+       public static void main(String args[]) {
+              String name="Rahul";
+              int age=21;
+              String comment;
+              if(age>=18){
+                    comment="Eligible for voting";
+              }
+              else{
+                   comment="Not eligible";
+                  }
+            System.out.println(comment);
+       }
+     }   
+
+
+         
  
 Q We need to store the details of 100 persons with our limited knowledge. 
 A * Taking Array
@@ -63,7 +82,9 @@ getting overwritten by the next value.
 -----------------------------------------------------------------------------------------------------------------------------------
 If we talk about person,book,employee,student these are real life entities. 
 
-
+// The below code wont work because we cannot access non static member from static member
+// Cannot make a static reference to the non-static field age
+//  Cannot make a static reference to the non-static field name
 class Person4a{
      int age;
      String name;
@@ -124,6 +145,13 @@ class Person5{
             p.name="Ravi";
             System.out.println(p.age);
             System.out.println(p.name);
+              if(p.age>=18){
+                    System.out.println("Eligible for voting");
+              }
+              else{
+                   System.out.println("Not eligible");
+              } 
+
 
      }
 
@@ -166,6 +194,12 @@ class Person6{
        name="Akash";
        System.out.println(age);
        System.out.println(name);
+        if(age>=18){
+                    System.out.println("Eligible for voting");
+              }
+              else{
+                   System.out.println("Not eligible");
+              } 
       } 
 
     public static void main(String args[]) {
@@ -193,6 +227,12 @@ void setData() {
 
 	 System.out.println(age);
 	 System.out.println(name);
+          if(age>=18){
+                    System.out.println("Eligible for voting");
+              }
+              else{
+                   System.out.println("Not eligible");
+              } 
 	 
  }
 	
@@ -211,19 +251,22 @@ void setData() {
 public class Person8 {
 int age;
 String name;
-
 void setData() {
 	 age=19;
 	 name="Rajesh";	
 }
 
  void dispData() {
-
 	 System.out.println(age);
 	 System.out.println(name);
+          if(age>=18){
+                    System.out.println("Eligible for voting");
+              }
+              else{
+                   System.out.println("Not eligible");
+              } 
 	 
  }
-	
 	public static void main(String[] args) {
 		Person8 per1=new Person8();
 		per1.setData();
@@ -263,6 +306,12 @@ void setData() {
 
 	 System.out.println(age);
 	 System.out.println(name);
+          if(age>=18){
+                    System.out.println("Eligible for voting");
+              }
+              else{
+                   System.out.println("Not eligible");
+              } 
 	 
  }
 	
@@ -297,10 +346,15 @@ void setData(int a,String n) {
 
 	 System.out.println(age);
 	 System.out.println(name);
+          if(age>=18){
+                    System.out.println("Eligible for voting");
+              }
+              else{
+                   System.out.println("Not eligible");
+              } 
 	 
  }
-	
-	public static void main(String[] args) {
+public static void main(String[] args) {
 		Person10 per1=new Person10();
 		per1.setData(18,"Ram");
 		
@@ -313,7 +367,6 @@ void setData(int a,String n) {
 	}
 
 }
-
 --------------------------------------------------------------------------------------------------------------------------------
 import java.util.Scanner;
 
@@ -325,7 +378,9 @@ Scanner scan=new Scanner(System.in);
 // as we are passing one int datatype 
 // value and one String datatype value
 void setData() {
+         System.out.println("Enter age");
 	 age=scan.nextInt();
+         System.out.println("Enter name");
 	 name=scan.next();	
 }
 
@@ -333,6 +388,12 @@ void setData() {
 
 	 System.out.println(age);
 	 System.out.println(name);
+           if(age>=18){
+                    System.out.println("Eligible for voting");
+              }
+              else{
+                   System.out.println("Not eligible");
+              } 
 	 
  }
 	
@@ -370,7 +431,7 @@ class Customer {
 
 }
 
-public class Tester{
+ class Tester{
 
 	public static void main(String[] args) {
 
@@ -391,7 +452,7 @@ public class Tester{
 	}
 
 }
-------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 Q We have kept the display of being eligible or not in the same method displayData().
   Can we write it in a different method?
 A yes
@@ -573,3 +634,115 @@ Parameters – comma separated input values passed to the method, should be () i
 Method body – the code that defines the functionality of the method 
 
  ---------------------------------------------------------------------------------------------------------------------------------
+We want to enter Bookdetails name,actualPrice,quantityOrdered,priceAfterDiscount. If the price of the book is more than 1000 or quantity ordered is more than 10, give a discount of 10% . If the price of the book is more than 5000 or quantity ordered is more than 50,
+give a discount of 20% otherwise give a discount of 5%.
+
+
+
+
+public class Book {
+   String bookName;
+   int actualPrice;
+   int quantityOrdered;
+   double priceAfterDiscount;
+
+  void setBookDetails(String bn,int ap,int qo){
+     bookName=bn;
+     actualPrice=ap;
+     quantityOrdered=qo;
+  }
+ 
+   void displayData(){
+    System.out.println(bookName);
+    System.out.println(actualPrice);
+    System.out.println(quantityOrdered);
+    System.out.println(priceAfterDiscount);
+   }
+
+   void discountCalculation(int discount){
+     priceAfterDiscount=actualPrice-actualPrice*((float)discount/100);
+
+   } 
+
+   public static void main(String args[]) {
+       Book book=new Book();
+       book.setBookDetails("Java",500,11);
+      if(book.actualPrice>5000 || book.quantityOrdered>50)
+          {
+           book.discountCalculation(20);
+          }
+      else if(book.actualPrice>1000  ||  book.quantityOrdered>10)
+          {
+           book.discountCalculation(10);
+          }
+       else
+        {
+         book.discountCalculation(5);
+        }
+         book.displayData();  
+
+    }  
+}
+
+----------------------------------------------------------------------------------------------------------------------------------
+Q When we should have parameterized methods?
+A When method needs to work with different values for different execution or different objects.
+-------------------------------------------------------------------------------------------------------------------------
+
+public class Person13 {
+int age;
+String name;
+// setData is a parameterized method
+// as we are passing one int datatype 
+// value and one String datatype value
+void setData(int a,String n) {
+	 age=a;
+	 name=n;	
+}
+
+void dispData() {
+
+	 System.out.println(age);
+	 System.out.println(name);
+       
+ }
+
+ boolean isEligible(){
+   if(age>=18){
+              return true;
+              }
+              return false;
+ }
+
+public static void main(String[] args) {
+		Person13 per1=new Person13();
+		per1.setData(18,"Ram");
+                
+		
+		Person13 per2=new Person13();
+		per2.setData(15,"Ashok");
+                 
+		
+		System.out.println("The data ");
+          
+		per1.dispData();
+                boolean eligible=per1.isEligible();
+                if(eligible) // if(eligible==true) {}
+                   {
+		   System.out.println("Eligible to vote");
+                   } 
+                 else{
+                   System.out.println("Not eligible to vote");
+                   }
+                   per2.dispData(); 
+                   eligible=per2.isEligible();
+               if(eligible)
+                   {
+		   System.out.println("Eligible to vote");
+                   } 
+                 else{
+                   System.out.println("Not eligible to vote");
+                   }
+	}
+
+}
