@@ -391,3 +391,185 @@ public class Tester{
 	}
 
 }
+------------------------------------------------------------------------------------------------------------------------------------------
+Q We have kept the display of being eligible or not in the same method displayData().
+  Can we write it in a different method?
+A yes
+
+public class Person12 {
+int age;
+String name;
+// setData is a parameterized method
+// as we are passing one int datatype 
+// value and one String datatype value
+void setData(int a,String n) {
+	 age=a;
+	 name=n;	
+}
+
+void dispData() {
+
+	 System.out.println(age);
+	 System.out.println(name);
+       
+ }
+
+ void isEligible(){
+   if(age>=18){
+               System.out.println("Eligible for voting");
+              }
+              else{
+                   System.out.println("Not eligible");
+              } 
+	 
+
+}
+
+public static void main(String[] args) {
+		Person12 per1=new Person12();
+		per1.setData(18,"Ram");
+                
+		
+		Person12 per2=new Person12();
+		per2.setData(20,"Ashok");
+                 
+		
+		System.out.println("The data ");
+          
+		per1.dispData();
+                per1.isEligible();
+		per2.dispData();
+                per2.isEligible();
+	}
+
+}
+
+------------------------------------------------------------------------------------------------
+We want to enter Bookdetails name,actualPrice,quantityOrdered,priceAfterDiscount. If the price of the book is more than 1000 or quantity ordered is more than 10, give a discount of 10% otherwise priceAfterDiscount will be same as the actualPrice.
+[ FOLLOW THIS TECHNIQUE ]
+class Book {
+   String bookName;
+   int actualPrice;
+   int quantityOrdered;
+   double priceAfterDiscount;
+
+ void setBookDetails(String bn,int ap,int qo){
+     bookName=bn;
+     actualPrice=ap;
+     quantityOrdered=qo;
+  }
+
+   void displayData(){
+
+   }
+
+   void discountCalculation(){
+
+
+   } 
+
+   public static void main(String args[]) {
+       Book book=new Book();
+       book.setBookDetails("Java",500,11);
+       book.displayData();
+       book.discountCalculation();
+       Book book2=new Book();
+       book2.setBookDetails("HTML",200,2);
+       book2.displayData();
+       book2.discountCalculation();
+  
+   }
+}
+-----------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+class Book {
+   String bookName;
+   int actualPrice;
+   int quantityOrdered;
+   double priceAfterDiscount;
+
+ void setBookDetails(String bn,int ap,int qo){
+     bookName=bn;
+     actualPrice=ap;
+     quantityOrdered=qo;
+  }
+
+   void displayData(){
+
+   }
+
+   void discountCalculation(){
+
+
+   } 
+
+   public static void main(String args[]) {
+       Book book=new Book();
+       Scanner scan=new Scanner(System.in);
+       System.out.println("Enter the bookName");
+       String name=scan.next(); 
+       System.out.println("Enter the actual price");
+       int price=scan.nextInt();
+       System.out.println("Enter the quantity on hand");
+       int qo=scan.nextInt();
+       book.setBookDetails(name,price,qo);
+       book.displayData();
+       book.discountCalculation();
+  
+   }
+}
+---------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+class Book {
+   String bookName;
+   int actualPrice;
+   int quantityOrdered;
+   double priceAfterDiscount;
+ 
+
+
+ void setBookDetails(){
+       Scanner scan=new Scanner(System.in);
+       System.out.println("Enter the bookName");
+       bookName=scan.next(); 
+       System.out.println("Enter the actual price");
+       actualPrice=scan.nextInt();
+       System.out.println("Enter the quantity on hand");
+       quantityOrdered=scan.nextInt();
+  }
+
+   void displayData(){
+
+   }
+
+   void discountCalculation(){
+
+
+   } 
+
+   public static void main(String args[]) {
+       Book book=new Book();
+       book.setBookDetails();
+       book.displayData();
+       book.discountCalculation();
+  
+   }
+}
+--------------------------------------------------------------------------------------------------------------------------
+
+  access_specifier return_type method_name(datatype parameter1,datatype parameter2,datatype parameterN){
+
+
+  }
+
+Access modifier – defines the access type of the method. You will learn more about this later in the course. 
+
+Return type – the data type of the value returned by the method or void if nothing is returned 
+
+Method name – name of the method 
+
+Parameters – comma separated input values passed to the method, should be () if no parameters are passed 
+
+Method body – the code that defines the functionality of the method 
+
+ ---------------------------------------------------------------------------------------------------------------------------------
