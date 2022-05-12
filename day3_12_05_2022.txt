@@ -247,7 +247,7 @@ void setData() {
 }
 [ In the above code setData and displayData are member methods/functions/behaviour of a class. ]
 
------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------
 public class Person8 {
 int age;
 String name;
@@ -745,7 +745,190 @@ public static void main(String[] args) {
                    }
 	}
 
-}Somsasekhar ====> Person eligibility for voting. 
+}
+-----------------------------------------------------------------------------------------------------------------
+Create a class Calculator with num1,num2 and perform various arithmetic operations like add,subtract,divide,multiply.
+Display the result of the operation in main method.
+
+  class Calculator {
+   int num1;     // The num1 and num2 here are instance variables
+   int num2;
+
+    int add(int num1,int num2){ // the num1 and num2 are parameters and though the variable names are same as that of instance
+    // variables but the are local to the add method.
+    return num1+num2;
+    }
+
+   public static void main(String args[]) {
+     Calculator calc=new Calculator();
+     int result;
+     System.out.println("The result after add is "+result);
+   }
+
+  }
+---------------------------------------------------------------------------------------------------------------------
+ class Calculator1 {
+   int num1;     // The num1 and num2 here are instance variables
+   int num2;
+
+   
+ 
+    int add(int num1,int num2){ // the num1 and num2 are parameters and though the variable names are same as that of instance
+    // variables but the are local to the add method.
+    return num1+num2;
+    }
+
+   public static void main(String args[]) {
+     Calculator1 calc=new Calculator1();
+     int result;
+     System.out.println("The result after add is "+result);
+   }
+
+  }
+------------------------------------------------------------------------------------------------------------------------------
+ class Calculator2 {
+   int num1;     // The num1 and num2 here are instance variables
+   int num2;
+
+    void setData(int n1,int n2){
+      num1=n1;
+      num2=n2;
+    }
+
+    void displayNumbers(){
+     System.out.println(num1);
+     System.out.println(num2);
+    }
+   
+ 
+    int add(){ 
+      int result=num1+num2;
+       return result;
+    }
+
+    int subtract(){
+    int result=num1-num2;
+    }
+
+   public static void main(String args[]) {
+     Calculator2 calc=new Calculator2();
+     calc.setData(2,1);
+     calc.displayNumbers();
+     int result=calc.add();
+     System.out.println("The result after add is "+result);
+     result=calc.subtract();
+     System.out.println("The result after add is "+result);
+   }
+
+  }
+Observations:-
+* We have num1 and num2 as instance variables.
+* We have n1 and n2 are parameters to setData method and are having local scope/access to the setData method.
+* We have result local to main method and result local to add and subtract method.
+------------------------------------------------------------------------------------------------------------------
+
+public class Demo {
+	public void changeValue(int value1, int value2) {
+		value1 = value1 + value2;
+		value2 = value1 - value2;
+		System.out.println(value1 + " " + value2);
+	}
+
+    public static void main(String args[]) {
+	Demo demo = new Demo();
+	int x = 20;
+	int y = 10;
+	System.out.println(x + " " + y);   // 20 10
+	demo.changeValue(x, y);           //  30 20
+	System.out.println("After calling changeValue function");
+	System.out.println(x + " " + y);   // 20 10
+}
+
+
+}
+--------------------------------------------------------------
+/* For the below code design a menu based program.
+   Following menu we will be having 
+   1) ENTER NUMBERS
+   2) DISPLAY DATA
+   3) SUBTRACT
+   4) ADD
+   5) DIVIDE
+   6) MULTIPLY
+   7) EXIT
+   Enter your choice
+   1
+   Enter the num1
+   2
+   Enter the num2
+   3
+   1) ENTER NUMBERS
+   2) DISPLAY DATA
+   3) SUBTRACT
+   4) ADD
+   5) DIVIDE
+   6) MULTIPLY
+   7) EXIT
+   Enter your choice
+   2
+   2
+   3
+   1) ENTER NUMBERS
+   2) DISPLAY DATA
+   3) SUBTRACT
+   4) ADD
+   5) DIVIDE
+   6) MULTIPLY
+   7) EXIT
+   Enter your choice
+   4
+   5
+  
+class Calculator3 {
+   int num1;     // The num1 and num2 here are instance variables
+   int num2;
+
+    void setData(int n1,int n2){
+      num1=n1;
+      num2=n2;
+    }
+
+    void displayNumbers(){
+     System.out.println(num1);
+     System.out.println(num2);
+    }
+   
+ 
+    int add(){ 
+      int result=num1+num2;
+       return result;
+    }
+
+    int subtract(){
+    int result=num1-num2;
+    }
+
+   public static void main(String args[]) {
+     Calculator2 calc=new Calculator2();
+     calc.setData(2,1);
+     calc.displayNumbers();
+     int result=calc.add();
+     System.out.println("The result after add is "+result);
+     result=calc.subtract();
+     System.out.println("The result after add is "+result);
+   }
+
+  }
+
+
+[ Hint: switch case and loop ]
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+Somsasekhar ====> Person eligibility for voting. 
 Nagagopichand   ===> 100 people voting and for them eligibility needs to be checked.
  
 
@@ -994,7 +1177,7 @@ void setData() {
 }
 [ In the above code setData and displayData are member methods/functions/behaviour of a class. ]
 
------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------
 public class Person8 {
 int age;
 String name;
@@ -1493,3 +1676,185 @@ public static void main(String[] args) {
 	}
 
 }
+-----------------------------------------------------------------------------------------------------------------
+Create a class Calculator with num1,num2 and perform various arithmetic operations like add,subtract,divide,multiply.
+Display the result of the operation in main method.
+
+  class Calculator {
+   int num1;     // The num1 and num2 here are instance variables
+   int num2;
+
+    int add(int num1,int num2){ // the num1 and num2 are parameters and though the variable names are same as that of instance
+    // variables but the are local to the add method.
+    return num1+num2;
+    }
+
+   public static void main(String args[]) {
+     Calculator calc=new Calculator();
+     int result;
+     System.out.println("The result after add is "+result);
+   }
+
+  }
+---------------------------------------------------------------------------------------------------------------------
+ class Calculator1 {
+   int num1;     // The num1 and num2 here are instance variables
+   int num2;
+
+   
+ 
+    int add(int num1,int num2){ // the num1 and num2 are parameters and though the variable names are same as that of instance
+    // variables but the are local to the add method.
+    return num1+num2;
+    }
+
+   public static void main(String args[]) {
+     Calculator1 calc=new Calculator1();
+     int result;
+     System.out.println("The result after add is "+result);
+   }
+
+  }
+------------------------------------------------------------------------------------------------------------------------------
+ class Calculator2 {
+   int num1;     // The num1 and num2 here are instance variables
+   int num2;
+
+    void setData(int n1,int n2){
+      num1=n1;
+      num2=n2;
+    }
+
+    void displayNumbers(){
+     System.out.println(num1);
+     System.out.println(num2);
+    }
+   
+ 
+    int add(){ 
+      int result=num1+num2;
+       return result;
+    }
+
+    int subtract(){
+    int result=num1-num2;
+    }
+
+   public static void main(String args[]) {
+     Calculator2 calc=new Calculator2();
+     calc.setData(2,1);
+     calc.displayNumbers();
+     int result=calc.add();
+     System.out.println("The result after add is "+result);
+     result=calc.subtract();
+     System.out.println("The result after add is "+result);
+   }
+
+  }
+Observations:-
+* We have num1 and num2 as instance variables.
+* We have n1 and n2 are parameters to setData method and are having local scope/access to the setData method.
+* We have result local to main method and result local to add and subtract method.
+------------------------------------------------------------------------------------------------------------------
+
+public class Demo {
+	public void changeValue(int value1, int value2) {
+		value1 = value1 + value2;
+		value2 = value1 - value2;
+		System.out.println(value1 + " " + value2);
+	}
+
+    public static void main(String args[]) {
+	Demo demo = new Demo();
+	int x = 20;
+	int y = 10;
+	System.out.println(x + " " + y);   // 20 10
+	demo.changeValue(x, y);           //  30 20
+	System.out.println("After calling changeValue function");
+	System.out.println(x + " " + y);   // 20 10
+}
+
+
+}
+--------------------------------------------------------------
+/* For the below code design a menu based program.
+   Following menu we will be having 
+   1) ENTER NUMBERS
+   2) DISPLAY DATA
+   3) SUBTRACT
+   4) ADD
+   5) DIVIDE
+   6) MULTIPLY
+   7) EXIT
+   Enter your choice
+   1
+   Enter the num1
+   2
+   Enter the num2
+   3
+   1) ENTER NUMBERS
+   2) DISPLAY DATA
+   3) SUBTRACT
+   4) ADD
+   5) DIVIDE
+   6) MULTIPLY
+   7) EXIT
+   Enter your choice
+   2
+   2
+   3
+   1) ENTER NUMBERS
+   2) DISPLAY DATA
+   3) SUBTRACT
+   4) ADD
+   5) DIVIDE
+   6) MULTIPLY
+   7) EXIT
+   Enter your choice
+   4
+   5
+  
+class Calculator3 {
+   int num1;     // The num1 and num2 here are instance variables
+   int num2;
+
+    void setData(int n1,int n2){
+      num1=n1;
+      num2=n2;
+    }
+
+    void displayNumbers(){
+     System.out.println(num1);
+     System.out.println(num2);
+    }
+   
+ 
+    int add(){ 
+      int result=num1+num2;
+       return result;
+    }
+
+    int subtract(){
+    int result=num1-num2;
+    }
+
+   public static void main(String args[]) {
+     Calculator2 calc=new Calculator2();
+     calc.setData(2,1);
+     calc.displayNumbers();
+     int result=calc.add();
+     System.out.println("The result after add is "+result);
+     result=calc.subtract();
+     System.out.println("The result after add is "+result);
+   }
+
+  }
+
+
+[ Hint: switch case and loop ]
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
