@@ -1,0 +1,393 @@
+Somsasekhar ====> Person eligibility for voting. 
+Nagagopichand   ===> 100 people voting and for them eligibility needs to be checked.
+ 
+
+----------------------------------------------------------------------------------------------------------------------------------
+Q Can we convert this scenario into a code?
+A Yes
+class Person1{
+       public static void main(String args[]) {
+              String name="Rahul";
+              int age=21;
+              if(age>=18){
+                    System.out.println("Eligible for voting");
+              }
+              else{
+                   System.out.println("Not eligible");
+              }
+       }
+     }            
+ 
+Q We need to store the details of 100 persons with our limited knowledge. 
+A * Taking Array
+  * List 
+  * for loop
+  * Scanner to take user input
+class Person2{
+     public static void main(String args[]) {
+      String name1="Ravi";
+      String name2="Ashok";
+      String name3="Atul";
+      int age_of_name1=20;
+      int age_of_name2=18;
+  
+     }
+}
+-------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+class Person3{
+     public static void main(String args[]) {
+         Scanner scan=new Scanner(System.in);  
+         int numberOfPeople=100;
+         int age;
+         String name;
+         for(int ctr=1;ctr<=numberOfpeople;ctr++){
+             System.out.println("Enter the name");
+              name=scan.next();
+              System.out.println("Enter the age");
+              age=scan.nextInt();
+              if(age>=18){
+                    System.out.println("Eligible for voting");
+              }
+              else{
+                   System.out.println("Not eligible");
+              } 
+         } 
+ 
+     }
+}
+
+In the above example we are not able to retain the name and age as they are 
+getting overwritten by the next value. 
+-----------------------------------------------------------------------------------------------------------------------------------
+If we talk about person,book,employee,student these are real life entities. 
+
+
+class Person4a{
+     int age;
+     String name;
+  
+    public static void main(String args[]) {
+          
+            age=18;
+            name="Ravi";
+            System.out.println(age);
+            System.out.println(name);
+
+     }
+
+
+
+}
+
+class Person4b{
+    static int age;
+    static String name;
+  
+    public static void main(String args[]) {
+          
+            age=18;
+            name="Ravi";
+            System.out.println(age);
+            System.out.println(name);
+
+     }
+
+
+
+}
+
+
+
+[In the above code we have kept the roll and name outside the main method
+now in the above code roll and name are not local to main method. They are 
+now being called as instance variables/member variables/attributes/properties.]
+
+
+Q How are we going to access the roll and name from main method? Is it the same 
+way as before?
+A No. We cannot access non static member from static member or block. 
+
+
+Q Do we have any way out to access the non static member from the static main method?
+A Yes. Create an object of the class and with the object access the members.
+
+
+class Person5{
+    int age;
+    String name;
+  
+    public static void main(String args[]) {
+            Person5 p=new Person5();
+            p.age=19;
+            p.name="Ravi";
+            System.out.println(p.age);
+            System.out.println(p.name);
+
+     }
+
+
+
+}
+
+
+In the above example p is a reference variable which is holding the reference or address
+of the newly created object. 
+      new Person5(); ===> with new the object is getting created during the runtime .
+
+Person5 p=new Person5();==> In the reference variable p we are storing the address of
+the object which got created with new Person5();
+The object creation is a two step process.
+
+ Person5 p=null; // p is a reference variable which currently not having any address for an object.
+p=new Person5(); // In the reference variable p we are storing the address of the newly created object.
+OR
+Person5 p=new Person5(); 
+
+similar to writing
+
+int num=10; // declaration and initialisation in the same line.
+------------------------------------------------------------------------------------------------------------------------------
+Q Still we have not achieved the solution for storing 100 Persons.
+A yes.
+----------------------------------------------------------------------------------------------------------------
+OOP helps a programmer in breaking down the code into smaller modules. These modules (classes) will have state(represented by attributes/variables) and functionality (represented by behavior/methods).
+
+Q I know only one method that is main. So can we write some more methods in the class?
+A Yes
+
+class Person6{
+    int age;
+    String name;
+  
+     void displayData(){
+       age=10;
+       name="Akash";
+       System.out.println(age);
+       System.out.println(name);
+      } 
+
+    public static void main(String args[]) {
+            Person6 p=new Person6();
+            p.displayData();
+     }
+
+
+
+}
+Q Okie we wrote a displayData() method. Can we plan in such a way that one method will be
+for initialising the member variables and another method will be for display of data?
+A yes 
+
+public class Person7 {
+int age;
+String name;
+
+void setData() {
+	 age=19;
+	 name="Rajesh";	
+}
+
+ void dispData() {
+
+	 System.out.println(age);
+	 System.out.println(name);
+	 
+ }
+	
+	public static void main(String[] args) {
+		Person7 per=new Person7();
+		per.setData();
+		per.dispData();
+		Person7 per2=new Person7();
+		per2.dispData();
+	}
+
+}
+[ In the above code setData and displayData are member methods/functions/behaviour of a class. ]
+
+-----------------------------------------------------------------------------------------------
+public class Person8 {
+int age;
+String name;
+
+void setData() {
+	 age=19;
+	 name="Rajesh";	
+}
+
+ void dispData() {
+
+	 System.out.println(age);
+	 System.out.println(name);
+	 
+ }
+	
+	public static void main(String[] args) {
+		Person8 per1=new Person8();
+		per1.setData();
+		per1.dispData();
+		Person8 per2=new Person8();
+		per2.setData();
+		per2.dispData();
+	}
+
+}
+ 
+[ In the above code both the objects are having the same data ]
+
+Q Do we have a solution so that the objects will have different set of data?
+A Yes we have two ways
+   * Use of Scanner object
+   * Passing parameters to the method setData
+
+The first solution:-
+
+import java.util.Scanner;
+
+public class Person9 {
+int age;
+String name;
+// For import press ctr+shift+o
+void setData() {
+	
+	Scanner scan=new Scanner(System.in);
+	System.out.println("Enter the age");
+	 age=scan.nextInt();
+	System.out.println("Enter the name");
+	 name=scan.next();	
+}
+
+ void dispData() {
+
+	 System.out.println(age);
+	 System.out.println(name);
+	 
+ }
+	
+	public static void main(String[] args) {
+		Person9 per1=new Person9();
+		per1.setData();
+		
+		Person9 per2=new Person9();
+		
+		per2.setData();
+		System.out.println("The data ");
+		per1.dispData();
+		per2.dispData();
+	}
+
+}
+
+
+
+public class Person10 {
+int age;
+String name;
+// setData is a parameterized method
+// as we are passing one int datatype 
+// value and one String datatype value
+void setData(int a,String n) {
+	 age=a;
+	 name=n;	
+}
+
+ void dispData() {
+
+	 System.out.println(age);
+	 System.out.println(name);
+	 
+ }
+	
+	public static void main(String[] args) {
+		Person10 per1=new Person10();
+		per1.setData(18,"Ram");
+		
+		Person10 per2=new Person10();
+		per2.setData(20,"Ashok");
+		
+		System.out.println("The data ");
+		per1.dispData();
+		per2.dispData();
+	}
+
+}
+
+--------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+public class Person11 {
+int age;
+String name;
+Scanner scan=new Scanner(System.in);
+// setData is a parameterized method
+// as we are passing one int datatype 
+// value and one String datatype value
+void setData() {
+	 age=scan.nextInt();
+	 name=scan.next();	
+}
+
+ void dispData() {
+
+	 System.out.println(age);
+	 System.out.println(name);
+	 
+ }
+	
+	public static void main(String[] args) {
+		Person11 per1=new Person11();
+		per1.setData(18,"Ram");
+	        int ch;
+                System.out.println("Enter your choice);
+                ch=per1.scan.nextInt();	
+		Person11 per2=new Person11();
+		per2.setData(20,"Ashok");
+		
+		System.out.println("The data ");
+		per1.dispData();
+		per2.dispData();
+	}
+
+}
+-------------------------------------------------------------------------------------------------
+class Customer {
+
+	 String customerId;
+	String customerName;
+	 long contactNumber;
+	String address;
+
+	 void displayCustomerDetails() {
+		System.out.println("Displaying customer details \n***************************");
+		System.out.println("Customer Id : " + customerId);
+		System.out.println("Customer Name : " + customerName);
+		System.out.println("Contact Number : " + contactNumber);
+		System.out.println("Address : " + address);
+		System.out.println();
+	}
+
+}
+
+ class Tester{
+
+	public static void main(String[] args) {
+
+		// Object creation
+		Customer customer = new Customer();
+
+		// Assigning values to the instance variables
+		customer.customerId = "C101";
+		customer.customerName = "Stephen Abram";
+		customer.contactNumber = 7856341287L;
+		customer.address = "D089, St. Louis Street, Springfield, 62729";
+
+		// Displaying the customer details
+		customer.displayCustomerDetails();
+		// Move the above statement immediately after the object creation
+		// statement and observe the output
+
+	}
+
+}
